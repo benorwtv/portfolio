@@ -20,7 +20,7 @@ const content = {
       },
       {
         q: "Do you design the UI/UX as well as write the code?",
-        a: "Yes. As a hybrid Senior Designer and Programmer, I handle both sides. This eliminates the usual friction between design and engineering, resulting in a cohesive, polished final product.",
+        a: "Yes. By handling both design and development, I eliminate the usual friction between design and engineering, resulting in a cohesive, polished final product.",
       },
       {
         q: "What technologies do you specialize in?",
@@ -41,7 +41,7 @@ const content = {
       },
       {
         q: "Faz o design UI/UX além de escrever o código?",
-        a: "Sim. Como Designer Sénior e Programador híbrido, lido com ambas as partes. Isso elimina a fricção comum entre design e engenharia, resultando num produto final coeso e polido.",
+        a: "Sim. Ao lidar com o design e com o desenvolvimento, elimino a fricção comum entre o design e a engenharia, resultando num produto final coeso e polido.",
       },
       {
         q: "Em que tecnologias se especializa?",

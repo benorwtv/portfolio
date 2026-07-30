@@ -8,21 +8,21 @@ import { useLanguage } from "@/context/LanguageContext";
 const content = {
   EN: {
     title: "Investment",
-    subtitle: "Transparent pricing for custom software and AI solutions.",
+    subtitle: "Transparent freelance pricing for custom software and AI solutions.",
     plans: [
       {
-        name: "Consulting",
-        price: "$50",
+        name: "Hourly Rate",
+        price: "€20",
         period: "/ hr",
-        description: "For strategic guidance, architecture reviews, and software planning.",
+        description: "For consulting, architecture reviews, and software planning.",
         features: ["Technical Architecture", "UI/UX Audits", "Performance Profiling", "Strategic Planning"],
         isPopular: false,
         popularBadge: "Most Requested",
         btn: "Inquire Now"
       },
       {
-        name: "Project",
-        price: "$2k+",
+        name: "Fixed Project",
+        price: "€800+",
         period: " fixed",
         description: "End-to-end delivery of custom software, AI integrations, and web apps.",
         features: ["Full-stack Development", "AI Integrations", "Responsive UI/UX", "Project Support"],
@@ -31,8 +31,8 @@ const content = {
         btn: "Inquire Now"
       },
       {
-        name: "Retainer",
-        price: "$1.5k",
+        name: "Monthly Retainer",
+        price: "€400+",
         period: "/ mo",
         description: "Ongoing development, automation support, and software maintenance.",
         features: ["Dedicated Monthly Hours", "Priority Support", "Iterative Improvements", "Continuous Deployment", "Direct Slack Channel"],
@@ -44,21 +44,21 @@ const content = {
   },
   PT: {
     title: "Investimento",
-    subtitle: "Preços transparentes para software personalizado e soluções de IA.",
+    subtitle: "Preços de freelancer transparentes para software e soluções de IA.",
     plans: [
       {
-        name: "Consultoria",
-        price: "€45",
+        name: "À Hora",
+        price: "€20",
         period: "/ h",
-        description: "Orientação estratégica, revisões de arquitetura e planeamento de software.",
+        description: "Consultoria, revisões de arquitetura e planeamento de software.",
         features: ["Arquitetura Técnica", "Auditorias UI/UX", "Análise de Desempenho", "Planeamento Estratégico"],
         isPopular: false,
         popularBadge: "Mais Pedido",
         btn: "Consultar"
       },
       {
-        name: "Projeto",
-        price: "€2k+",
+        name: "Projeto Fechado",
+        price: "€800+",
         period: " fixo",
         description: "Entrega de software personalizado, integrações de IA e apps web.",
         features: ["Desenvolvimento Full-stack", "Integrações IA", "UI/UX Responsivo", "Suporte de Projeto"],
@@ -67,8 +67,8 @@ const content = {
         btn: "Consultar"
       },
       {
-        name: "Retenção",
-        price: "€1.5k",
+        name: "Avença Mensal",
+        price: "€400+",
         period: "/ mês",
         description: "Desenvolvimento contínuo, suporte de automação e manutenção.",
         features: ["Horas Mensais Dedicadas", "Suporte Prioritário", "Melhorias Iterativas", "Deploy Contínuo", "Canal Slack Direto"],
