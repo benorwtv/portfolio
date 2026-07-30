@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-darker text-brand-cream antialiased selection:bg-brand-crimson selection:text-white;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+  }
+  .box-glow {
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+  }
+  .bg-glass {
+    @apply bg-brand-dark/50 backdrop-blur-md border border-brand-earth/20;
+  }
+}
