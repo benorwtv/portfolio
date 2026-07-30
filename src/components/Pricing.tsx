@@ -139,16 +139,17 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button
+              <a
+                href="mailto:benorwtv@proton.me"
                 className={clsx(
-                  "w-full py-3 rounded-xl font-medium transition-colors",
+                  "w-full py-3 rounded-xl font-medium transition-colors flex items-center justify-center",
                   plan.isPopular
                     ? "bg-brand-crimson hover:bg-red-800 text-white"
                     : "bg-brand-earth/10 hover:bg-brand-earth/20 text-brand-cream"
                 )}
               >
-                {plan.btn}
-              </button>
+                benorwtv@proton.me
+              </a>
             </motion.div>
           ))}
         </div>

@@ -13,6 +13,7 @@ export default function Hero() {
       title1: "Engineering",
       title2: "AI-Powered Solutions",
       desc: "I'm an AI specialist and software developer based in Esmoriz, Portugal, with experience delivering AI-powered solutions and custom software for clients across a wide range of industries. I specialize in combining modern artificial intelligence with real-world software engineering to build practical, scalable, and user-focused applications. Whether it's developing intelligent automation, creating custom web platforms, integrating AI into existing workflows, or building solutions from the ground up, I focus on delivering high-quality results that solve real business problems.",
+      journey: "My professional journey began at Pingo Doce (from 18 to 20 years old), where I discovered my deep passion for customer service and helping others. Later, I developed a custom application for Ferreira de Sá S.A., which officially launched my career into the coding and software engineering world.",
       btn1: "Explore My Work",
       btn2: "View Rates",
     },
@@ -21,6 +22,7 @@ export default function Hero() {
       title1: "Engenharia de",
       title2: "Soluções com IA",
       desc: "Sou um especialista em IA e programador de software com base em Esmoriz, Portugal, com experiência na entrega de soluções impulsionadas por IA e software personalizado para clientes de diversas indústrias. Especializo-me em combinar inteligência artificial moderna com engenharia de software do mundo real para criar aplicações práticas, escaláveis e focadas no utilizador. Seja no desenvolvimento de automação inteligente, criação de plataformas web, integração de IA em fluxos de trabalho existentes ou construção de soluções de raiz, o meu foco é entregar resultados de alta qualidade que resolvem problemas de negócio reais.",
+      journey: "A minha jornada profissional começou no Pingo Doce (aos 18-20 anos), onde descobri a minha grande paixão pelo serviço ao cliente e por ajudar os outros. Mais tarde, desenvolvi uma aplicação personalizada para a Ferreira de Sá S.A., o que lançou oficialmente a minha carreira no mundo da programação e engenharia de software.",
       btn1: "Explorar Trabalho",
       btn2: "Ver Preços",
     }
@@ -66,9 +68,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-lg md:text-xl text-brand-cream/60 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg md:text-xl text-brand-cream/60 max-w-2xl mx-auto mb-6 leading-relaxed"
         >
           {content[lang].desc}
+        </motion.p>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="text-base md:text-lg text-brand-cream/40 max-w-2xl mx-auto mb-10 leading-relaxed border-l-2 border-brand-crimson/50 pl-4 text-left"
+        >
+          {content[lang].journey}
         </motion.p>
 
         <motion.div

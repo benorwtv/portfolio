@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, Home, Briefcase, Award, DollarSign, HelpCircle } from "lucide-react";
+import { Menu, X, Globe, Home, Briefcase, DollarSign, HelpCircle } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -10,14 +10,12 @@ const navItems = {
   EN: [
     { id: "hero", label: "Home", icon: Home },
     { id: "features", label: "Expertise", icon: Briefcase },
-    { id: "social-proof", label: "Experience", icon: Award },
     { id: "pricing", label: "Rates", icon: DollarSign },
     { id: "faq", label: "FAQ", icon: HelpCircle },
   ],
   PT: [
     { id: "hero", label: "Início", icon: Home },
     { id: "features", label: "Especialidade", icon: Briefcase },
-    { id: "social-proof", label: "Experiência", icon: Award },
     { id: "pricing", label: "Preços", icon: DollarSign },
     { id: "faq", label: "FAQ", icon: HelpCircle },
   ]
