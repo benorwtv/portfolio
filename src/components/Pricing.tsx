@@ -3,35 +3,86 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
+import { useLanguage } from "@/context/LanguageContext";
 
-const plans = [
-  {
-    name: "Consulting",
-    price: "$150",
-    period: "/ hr",
-    description: "For strategic guidance, architecture reviews, and design system planning.",
-    features: ["Technical Architecture", "UI/UX Audits", "Performance Profiling", "Strategic Planning"],
-    isPopular: false,
+const content = {
+  EN: {
+    title: "Investment",
+    subtitle: "Transparent pricing for custom software and AI solutions.",
+    plans: [
+      {
+        name: "Consulting",
+        price: "$50",
+        period: "/ hr",
+        description: "For strategic guidance, architecture reviews, and software planning.",
+        features: ["Technical Architecture", "UI/UX Audits", "Performance Profiling", "Strategic Planning"],
+        isPopular: false,
+        popularBadge: "Most Requested",
+        btn: "Inquire Now"
+      },
+      {
+        name: "Project",
+        price: "$2k+",
+        period: " fixed",
+        description: "End-to-end delivery of custom software, AI integrations, and web apps.",
+        features: ["Full-stack Development", "AI Integrations", "Responsive UI/UX", "Project Support"],
+        isPopular: true,
+        popularBadge: "Most Requested",
+        btn: "Inquire Now"
+      },
+      {
+        name: "Retainer",
+        price: "$1.5k",
+        period: "/ mo",
+        description: "Ongoing development, automation support, and software maintenance.",
+        features: ["Dedicated Monthly Hours", "Priority Support", "Iterative Improvements", "Continuous Deployment", "Direct Slack Channel"],
+        isPopular: false,
+        popularBadge: "Most Requested",
+        btn: "Inquire Now"
+      },
+    ]
   },
-  {
-    name: "Project",
-    price: "$10k+",
-    period: " fixed",
-    description: "End-to-end delivery of web applications, landing pages, and complex interfaces.",
-    features: ["Full-stack Development", "Premium UI/UX Design", "Framer Motion Animations", "90+ Lighthouse Score", "3 Months Support"],
-    isPopular: true,
-  },
-  {
-    name: "Retainer",
-    price: "$4k",
-    period: "/ mo",
-    description: "Ongoing development and design support for evolving digital products.",
-    features: ["Dedicated Monthly Hours", "Priority Support", "Iterative Design", "Continuous Deployment", "Direct Slack Channel"],
-    isPopular: false,
-  },
-];
+  PT: {
+    title: "Investimento",
+    subtitle: "Preços transparentes para software personalizado e soluções de IA.",
+    plans: [
+      {
+        name: "Consultoria",
+        price: "€45",
+        period: "/ h",
+        description: "Orientação estratégica, revisões de arquitetura e planeamento de software.",
+        features: ["Arquitetura Técnica", "Auditorias UI/UX", "Análise de Desempenho", "Planeamento Estratégico"],
+        isPopular: false,
+        popularBadge: "Mais Pedido",
+        btn: "Consultar"
+      },
+      {
+        name: "Projeto",
+        price: "€2k+",
+        period: " fixo",
+        description: "Entrega de software personalizado, integrações de IA e apps web.",
+        features: ["Desenvolvimento Full-stack", "Integrações IA", "UI/UX Responsivo", "Suporte de Projeto"],
+        isPopular: true,
+        popularBadge: "Mais Pedido",
+        btn: "Consultar"
+      },
+      {
+        name: "Retenção",
+        price: "€1.5k",
+        period: "/ mês",
+        description: "Desenvolvimento contínuo, suporte de automação e manutenção.",
+        features: ["Horas Mensais Dedicadas", "Suporte Prioritário", "Melhorias Iterativas", "Deploy Contínuo", "Canal Slack Direto"],
+        isPopular: false,
+        popularBadge: "Mais Pedido",
+        btn: "Consultar"
+      },
+    ]
+  }
+};
 
 export default function Pricing() {
+  const { lang } = useLanguage();
+
   return (
     <section id="pricing" className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
@@ -43,15 +94,15 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-brand-cream">
-            Investment
+            {content[lang].title}
           </h2>
           <p className="text-brand-cream/60 text-lg max-w-2xl mx-auto">
-            Transparent pricing for premium digital craftsmanship.
+            {content[lang].subtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {plans.map((plan, index) => (
+          {content[lang].plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -67,7 +118,7 @@ export default function Pricing() {
             >
               {plan.isPopular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-crimson text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
-                  Most Requested
+                  {plan.popularBadge}
                 </div>
               )}
               
@@ -96,7 +147,7 @@ export default function Pricing() {
                     : "bg-brand-earth/10 hover:bg-brand-earth/20 text-brand-cream"
                 )}
               >
-                Inquire Now
+                {plan.btn}
               </button>
             </motion.div>
           ))}

@@ -4,27 +4,55 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import { useLanguage } from "@/context/LanguageContext";
 
-const faqs = [
-  {
-    q: "What is your typical process for a new project?",
-    a: "My process begins with a deep-dive discovery phase to understand your goals, target audience, and brand identity. This is followed by wireframing, high-fidelity UI/UX design, and finally, meticulous development and deployment with comprehensive testing.",
+const content = {
+  EN: {
+    title: "Frequently Asked",
+    faqs: [
+      {
+        q: "What is your typical process for a new project?",
+        a: "My process begins with a deep-dive discovery phase to understand your goals, target audience, and brand identity. This is followed by wireframing, high-fidelity UI/UX design, and finally, meticulous development and deployment with comprehensive testing.",
+      },
+      {
+        q: "How long does a standard web application take to build?",
+        a: "A standard landing page typically takes 2-3 weeks, while a full-scale web application ranges from 6 to 12 weeks depending on complexity, integrations, and feature requirements.",
+      },
+      {
+        q: "Do you design the UI/UX as well as write the code?",
+        a: "Yes. As a hybrid Senior Designer and Programmer, I handle both sides. This eliminates the usual friction between design and engineering, resulting in a cohesive, polished final product.",
+      },
+      {
+        q: "What technologies do you specialize in?",
+        a: "I specialize in the modern React ecosystem, specifically Next.js (App Router), TypeScript, Tailwind CSS, and Framer Motion. For backend services, I typically integrate with Supabase, Firebase, or custom Node.js APIs.",
+      },
+    ]
   },
-  {
-    q: "How long does a standard web application take to build?",
-    a: "A premium landing page typically takes 2-3 weeks, while a full-scale web application ranges from 6 to 12 weeks depending on complexity, integrations, and feature requirements.",
-  },
-  {
-    q: "Do you design the UI/UX as well as write the code?",
-    a: "Yes. As a hybrid Senior Designer and Programmer, I handle both sides. This eliminates the usual friction between design and engineering, resulting in a cohesive, polished final product.",
-  },
-  {
-    q: "What technologies do you specialize in?",
-    a: "I specialize in the modern React ecosystem, specifically Next.js (App Router), TypeScript, Tailwind CSS, and Framer Motion. For backend services, I typically integrate with Supabase, Firebase, or custom Node.js APIs.",
-  },
-];
+  PT: {
+    title: "Perguntas Frequentes",
+    faqs: [
+      {
+        q: "Qual é o seu processo típico para um novo projeto?",
+        a: "O meu processo começa com uma fase de descoberta profunda para entender os seus objetivos, público-alvo e identidade de marca. Segue-se o wireframing, design UI/UX de alta fidelidade e, finalmente, o desenvolvimento e implementação com testes rigorosos.",
+      },
+      {
+        q: "Quanto tempo demora a construir uma aplicação web standard?",
+        a: "Uma landing page típica demora 2-3 semanas, enquanto uma aplicação web completa varia entre 6 a 12 semanas, dependendo da complexidade, integrações e requisitos.",
+      },
+      {
+        q: "Faz o design UI/UX além de escrever o código?",
+        a: "Sim. Como Designer Sénior e Programador híbrido, lido com ambas as partes. Isso elimina a fricção comum entre design e engenharia, resultando num produto final coeso e polido.",
+      },
+      {
+        q: "Em que tecnologias se especializa?",
+        a: "Especializo-me no ecossistema moderno de React, especificamente Next.js, TypeScript, Tailwind CSS e Framer Motion. Para backend, integro normalmente com Supabase, Firebase ou APIs Node.js personalizadas.",
+      },
+    ]
+  }
+};
 
 export default function FAQ() {
+  const { lang } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -38,12 +66,12 @@ export default function FAQ() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-brand-cream">
-            Frequently Asked
+            {content[lang].title}
           </h2>
         </motion.div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => {
+          {content[lang].faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (

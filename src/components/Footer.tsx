@@ -2,8 +2,11 @@
 
 import { Globe, Mail, Briefcase } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+
   return (
     <footer className="border-t border-brand-earth/20 bg-brand-dark py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -28,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto mt-8 text-center md:text-left text-sm text-brand-cream/40">
-        © {new Date().getFullYear()} Ruben Monteiro. Esmoriz, Portugal.
+        © {new Date().getFullYear()} Ruben Monteiro. Esmoriz, Portugal. {lang === "PT" ? "Todos os direitos reservados." : "All rights reserved."}
       </div>
     </footer>
   );

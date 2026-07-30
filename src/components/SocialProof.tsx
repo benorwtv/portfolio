@@ -2,23 +2,46 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const testimonials = [
-  {
-    quote: "Ruben perfectly balanced cutting-edge AI integrations with rock-solid software engineering. He listened to our needs and delivered a platform that truly solved our core business problems.",
-    author: "Elena Rodriguez",
-    role: "VP of Product, InnovateTech",
+const content = {
+  EN: {
+    title: "Client Experience",
+    subtitle: "Real feedback from my professional history.",
+    testimonials: [
+      {
+        quote: "Excelent customer service",
+        author: "Pingo Doce",
+        role: "5 stars",
+      },
+      {
+        quote: "Teamwork was off the charts and the app delivered fulfilled our needs",
+        author: "Ferreira de Sá S.A.",
+        role: "5 stars",
+      },
+    ]
   },
-  {
-    quote: "Exceptional technical execution paired with outstanding customer service. Ruben is an absolute team player who guided us through the entire automation process seamlessly.",
-    author: "James Chen",
-    role: "Operations Director, Global Logistics",
-  },
-];
-
-const brands = ["AERIS", "LUMINA", "VORTEX", "NEXUS"];
+  PT: {
+    title: "Experiência de Clientes",
+    subtitle: "Feedback real do meu percurso profissional.",
+    testimonials: [
+      {
+        quote: "Excelente serviço ao cliente",
+        author: "Pingo Doce",
+        role: "5 estrelas",
+      },
+      {
+        quote: "O trabalho de equipa foi excecional e a aplicação entregue satisfez as nossas necessidades",
+        author: "Ferreira de Sá S.A.",
+        role: "5 estrelas",
+      },
+    ]
+  }
+};
 
 export default function SocialProof() {
+  const { lang } = useLanguage();
+
   return (
     <section id="social-proof" className="py-24 px-6 bg-brand-darker/50">
       <div className="max-w-6xl mx-auto">
@@ -30,30 +53,14 @@ export default function SocialProof() {
           className="text-center mb-16"
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-brand-cream">
-            Trusted by Industry Leaders
+            {content[lang].title}
           </h2>
-          <p className="text-brand-cream/60">Delivering excellence across global organizations.</p>
+          <p className="text-brand-cream/60">{content[lang].subtitle}</p>
         </motion.div>
 
-        {/* Brands */}
-        <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-20 opacity-40 grayscale">
-          {brands.map((brand, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="text-2xl font-black tracking-widest text-brand-cream"
-            >
-              {brand}
-            </motion.div>
-          ))}
-        </div>
-
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((test, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {content[lang].testimonials.map((test, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}

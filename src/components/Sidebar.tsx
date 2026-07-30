@@ -4,17 +4,27 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, Home, Briefcase, Award, DollarSign, HelpCircle } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
-const navItems = [
-  { id: "hero", label: "Home", icon: Home },
-  { id: "features", label: "Services", icon: Briefcase },
-  { id: "social-proof", label: "Experience", icon: Award },
-  { id: "pricing", label: "Rates", icon: DollarSign },
-  { id: "faq", label: "FAQ", icon: HelpCircle },
-];
+const navItems = {
+  EN: [
+    { id: "hero", label: "Home", icon: Home },
+    { id: "features", label: "Expertise", icon: Briefcase },
+    { id: "social-proof", label: "Experience", icon: Award },
+    { id: "pricing", label: "Rates", icon: DollarSign },
+    { id: "faq", label: "FAQ", icon: HelpCircle },
+  ],
+  PT: [
+    { id: "hero", label: "Início", icon: Home },
+    { id: "features", label: "Especialidade", icon: Briefcase },
+    { id: "social-proof", label: "Experiência", icon: Award },
+    { id: "pricing", label: "Preços", icon: DollarSign },
+    { id: "faq", label: "FAQ", icon: HelpCircle },
+  ]
+};
 
 export default function Sidebar() {
-  const [lang, setLang] = useState<"EN" | "PT">("EN");
+  const { lang, toggleLang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -23,10 +33,6 @@ export default function Sidebar() {
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const toggleLang = () => {
-    setLang(lang === "EN" ? "PT" : "EN");
   };
 
   const sidebarContent = (
@@ -45,7 +51,7 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex-1 space-y-4">
-        {navItems.map((item) => (
+        {navItems[lang].map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
